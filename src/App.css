@@ -1,0 +1,149 @@
+/* body {
+  background-color: #ff4b4b;
+  color: #ffca28;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.winner-text {
+  font-size: 30px;
+  animation: pop 0.8s ease-in-out;
+}
+.container {
+  /* padding: 2px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+}
+
+.box_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(3, 1fr); 
+  height: 400px;
+  width: 400px;
+}
+
+.box {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  border: 3px solid white;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pop-up {
+  animation: pop 0.8s ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.x-player {
+  background-color: transparent; 
+  color: #ffca28;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.o-player {
+  background-color: transparent; 
+  color: #ffca28;
+  font-size: 50px;
+  font-weight: calc(600 * 2);
+}
+
+.center_rows {
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.blur {
+  filter: blur(4px);
+  opacity: 0.5;
+  pointer-events: none; 
+  transition: all 0.3s ease-in-out;
+}
+
+.player_turn {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.reset_btn {
+  height: auto;
+  width: 100px;
+  background-color: #ffca28;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid transparent;
+  border-radius: 1.5em;
+  cursor: pointer;
+}
+
+.reset {
+  color: #ff4b4b;
+  font-size: 25px;
+}
+
+.foot {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+} */

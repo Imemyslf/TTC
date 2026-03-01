@@ -1,0 +1,170 @@
+body {
+  background-color: #ff4b4b;
+  color: #ffca28;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.winner-text {
+  font-size: 30px;
+  animation: pop 0.8s ease-in-out;
+}
+.container {
+  /* padding: 2px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+}
+
+.box_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows */
+  height: 400px;
+  width: 400px;
+}
+
+.box {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  border: 3px solid white;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(0, 0, 255, 0.303); */
+  background-color: transparent;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pop-up {
+  animation: pop 0.8s ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* When 'X' is clicked, make the background red */
+.x-player {
+  background-color: transparent; /* Red */
+  color: #ffca28;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+/* When 'O' is clicked, make the background green */
+.o-player {
+  background-color: transparent; /* Green */
+  color: #ffca28;
+  font-size: 50px;
+  font-weight: calc(600 * 2);
+}
+
+.center_rows {
+  height: auto;
+  width: auto;
+  /* border: 5px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* padding: 10px; */
+}
+
+.blur {
+  filter: blur(4px);
+  opacity: 0.5;
+  pointer-events: none; /* Prevent clicks */
+  transition: all 0.3s ease-in-out;
+}
+
+.player_turn {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.reset_btn {
+  height: auto;
+  width: 100px;
+  /* background-color: rgba(0, 0, 255, 0.303); */
+  background-color: #ffca28;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid transparent;
+  border-radius: 1.5em;
+  cursor: pointer;
+}
+
+.reset {
+  color: #ff4b4b;
+  font-size: 25px;
+}
+
+.foot {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #ffca28;
+  color: #ff4b4b;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #ffd54f;
+}

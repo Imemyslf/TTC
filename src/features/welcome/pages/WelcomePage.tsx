@@ -13,6 +13,7 @@ export default function Welcome() {
     // Remove old listeners (important)
     socket.off("waiting");
     socket.off("match-found");
+    socket.off("rejoin-room");
 
     socket.on("waiting", () => {
       console.log("⏳ Waiting for opponent...");
@@ -22,16 +23,23 @@ export default function Welcome() {
       console.log("🎉 Match Found:", roomId);
       navigate(`/game/${roomId}`);
     });
-
+    socket.on("rejoin-room", ({ roomId }) => {
+      console.log("Rejoining existing room:", roomId);
+      navigate(`/game/${roomId}`);
+    });
     return () => {
       socket.off("waiting");
       socket.off("match-found");
+      socket.off("rejoin-room");
     };
   }, [socket, navigate]);
 
   const handleStart = () => {
+    console.log("Inside HandleStart", socket);
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
     if (!socket) return;
-
+    console.log("Emitting find-match...");
     setLoading(true);
 
     if (!socket.connected) {

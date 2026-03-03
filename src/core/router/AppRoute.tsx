@@ -4,6 +4,7 @@ import Welcome from "../../features/welcome/pages/WelcomePage";
 import ProtectedRoute from "./ProctecteddRoute";
 import PublicRoute from "./PublicRoute";
 import NotFound from "../../features/common/pages/NotFound";
+import { Game } from "../../Component/Game";
 
 const AppRoute = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoute = () => {
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="/welcome" element={<Welcome />} />
+          <Route path="/game/:roomId" element={<Game />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

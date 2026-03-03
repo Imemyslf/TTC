@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
 const SocketContext = createContext<Socket | null>(null);
@@ -6,43 +6,39 @@ const SocketContext = createContext<Socket | null>(null);
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
-  const socketRef = useRef<Socket | null>(null);
+  const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (!token) return;
+    if (!token) {
+      console.log("No token found, socket not created");
+      return;
+    }
 
-    const socket = io("http://localhost:4000", {
+    console.log("Creating socket with token");
+
+    const newSocket = io("http://localhost:4000", {
       auth: { token },
       autoConnect: true,
-      reconnection: true,
-      reconnectionAttempts: 5,
-      reconnectionDelay: 1000,
     });
 
-    socketRef.current = socket;
-
-    socket.on("connect", () => {
-      console.log("🔌 Socket connected:", socket.id);
+    newSocket.on("connect", () => {
+      console.log("🔌 Socket connected:", newSocket.id);
     });
 
-    socket.on("disconnect", () => {
-      console.log("❌ Socket disconnected");
-    });
-
-    socket.on("connect_error", (err) => {
+    newSocket.on("connect_error", (err) => {
       console.error("Socket auth error:", err.message);
     });
 
+    setSocket(newSocket);
+
     return () => {
-      socket.disconnect();
+      newSocket.disconnect();
     };
-  }, []);
+  }, [localStorage.getItem("token")]); // 🔥 important
 
   return (
-    <SocketContext.Provider value={socketRef.current}>
-      {children}
-    </SocketContext.Provider>
+    <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
   );
 };
